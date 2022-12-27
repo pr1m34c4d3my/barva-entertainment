@@ -12,6 +12,7 @@ type ModelName = {
   name: string;
   image: string;
   description: string;
+  details: any;
 };
 
 const ModelCard = (props: Props) => {
@@ -19,22 +20,54 @@ const ModelCard = (props: Props) => {
 
   useEffect(() => {
     const model = [
-      { id: 1, name: "Rana", image: `${Rana}`, description: "aaaa" },
-      { id: 2, name: "Curtis", image: `${Lila}`, description: "aaaa" },
+      {
+        id: 1,
+        name: "Rana",
+        image: `${Rana}`,
+        description: "aaaa",
+        details: {
+          height: "158cm",
+          weight: "50kg",
+          gender: "female",
+          hair: "black",
+        },
+      },
+      {
+        id: 2,
+        name: "Lila",
+        image: `${Lila}`,
+        description: "aaaa",
+        details: {
+          height: "168cm",
+          weight: "60kg",
+          gender: "female",
+          hair: "black",
+        },
+      },
     ];
     setModel(model);
   }, []);
 
   return (
-    <div>
+    <div className="max-w-[1170px] mx-auto items-center justify-center flex gap-5 py-5">
       {model
         ? model.map((v: ModelName) => {
             return (
-              <>
+              <div className="flex flex-col gap-5">
                 <Name name={[{ id: v.id, name: v.name }]} />
                 <Image image={[{ id: v.id, url: v.image }]} />
-                <Detail />
-              </>
+                <Detail
+                  detail={[
+                    {
+                      id: v.id,
+                      height: v.details.height,
+                      weight: v.details.weight,
+                      gender: v.details.gender,
+                      hair: v.details.hair,
+                    },
+                  ]}
+                />
+              </div>
             );
           })
         : null}

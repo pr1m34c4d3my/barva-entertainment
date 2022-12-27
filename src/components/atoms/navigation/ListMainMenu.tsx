@@ -14,7 +14,7 @@ type Props = {
 const ListMainMenu: React.FC<Props> = ({ list }) => {
   const [menuList, setMenuList] = useState<ListMain[]>([]);
   return (
-    <ul>
+    <ul className="flex gap-3 font-bold uppercase">
       {list.map((v: ListMain) => {
         return (
           <li key={v.id}>

@@ -6,7 +6,7 @@ type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div>
+    <div className="bg-black text-white">
       <MainNav main={[]} />
       <ModelCard />
     </div>

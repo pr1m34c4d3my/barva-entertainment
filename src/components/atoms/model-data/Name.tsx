@@ -15,7 +15,11 @@ const Name: React.FC<Props> = ({ name }) => {
     <>
       {name
         ? name.map((v: Model) => {
-            return <h2 key={v.id}>{v.name}</h2>;
+            return (
+              <h2 key={v.id} className="text-[30px] uppercase font-bold">
+                {v.name}
+              </h2>
+            );
           })
         : null}
     </>

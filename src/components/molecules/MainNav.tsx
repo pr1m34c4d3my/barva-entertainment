@@ -23,8 +23,10 @@ const MainNav: React.FC<Props> = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className="flex max-w-[1170px] mx-auto py-5 bg-white text-black px-5 justify-between items-center">
+      <div>LOGO</div>
       <ListMainMenu list={main} />
+      <div>Click Here</div>
     </nav>
   );
 };
